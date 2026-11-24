@@ -40,7 +40,7 @@ def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: i
         return {"version":__version__, "status":"development",
                 "remote_enabled":True, "auth":"OAuth 2.1 PKCE",
                 "capabilities":["status","projects","tasks","memory",
-                                "owner_access","skills","doctor"] if datastore_url else ["status"]}
+                                "owner_access","skills","doctor","code_index"] if datastore_url else ["status"]}
     server.tool()(devcore_status)
     if datastore_url:
         register_owner_tools(server,datastore_url)
