@@ -3,11 +3,34 @@ from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 from devcore.state_postgres import DevCoreStore
 from devcore.system_ops import execute, read_text, write_text
+from devcore.skills_engine import SkillEngine
+from devcore.doctor import doctor
 
 
 def register_owner_tools(server: FastMCP, dsn: str) -> None:
     store=DevCoreStore(dsn)
     store.migrate()
+    skill_engine=SkillEngine()
+
+    @server.tool()
+    def devcore_skills_list() -> list[dict]:
+        """List the twenty built-in versioned engineering specializations."""
+        return skill_engine.list()
+
+    @server.tool()
+    def devcore_skill_route(task: str, max_skills: int = 3) -> list[str]:
+        """Find applicable skills using transparent deterministic keyword routing."""
+        return skill_engine.route(task,max_skills)
+
+    @server.tool()
+    def devcore_skill_load(identifier: str) -> dict:
+        """Load the metadata and trigger keywords for a local skill."""
+        return skill_engine.load(identifier)
+
+    @server.tool()
+    def devcore_doctor() -> dict:
+        """Read-only inspection of runtime, disk, local services and database."""
+        return doctor(database_url=dsn)
 
     @server.tool()
     def devcore_project_list() -> list[dict]:
