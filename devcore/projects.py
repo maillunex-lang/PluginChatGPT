@@ -1,4 +1,5 @@
 import sqlite3
+from contextlib import contextmanager
 from pathlib import Path
 
 class Registry:
@@ -6,8 +7,14 @@ class Registry:
         self.db=Path(db)
         with self.connect() as c:
             c.execute("CREATE TABLE IF NOT EXISTS projects (id TEXT PRIMARY KEY, root TEXT NOT NULL, repo TEXT NOT NULL)")
+    @contextmanager
     def connect(self):
-        return sqlite3.connect(self.db)
+        c=sqlite3.connect(self.db)
+        try:
+            with c:
+                yield c
+        finally:
+            c.close()
     def add(self, project_id, root, repo):
         if not project_id or not Path(root).is_absolute():
             raise ValueError("project id and absolute root required")
