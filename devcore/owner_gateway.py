@@ -9,9 +9,10 @@ from starlette.requests import Request
 from starlette.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 from devcore.owner_oauth import OwnerOAuthProvider, SCOPE
 from devcore.gateway import devcore_status
+from devcore.owner_tools import register_owner_tools
 
 
-def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: int = 18791):
+def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: int = 18791, datastore_url: str | None = None):
     if urlsplit(resource).scheme != "https":
         raise ValueError("Resource must be HTTPS")
     provider = OwnerOAuthProvider(db,issuer,owner_hash)
@@ -35,6 +36,8 @@ def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: i
         ),
     )
     server.tool()(devcore_status)
+    if datastore_url:
+        register_owner_tools(server,datastore_url)
 
     @server.custom_route("/owner/approve/{ticket}", methods=["GET","POST"])
     async def approval(request: Request):
@@ -65,4 +68,5 @@ def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: i
 if __name__ == "__main__":
     create_gateway(os.environ["DEVCORE_OAUTH_DB"], os.environ["DEVCORE_ISSUER"],
                    os.environ["DEVCORE_RESOURCE"],
-                   os.environ["DEVCORE_OWNER_PASSWORD_HASH"]).run(transport="streamable-http")
+                   os.environ["DEVCORE_OWNER_PASSWORD_HASH"],
+                   datastore_url=os.environ.get("DEVCORE_DATABASE_URL")).run(transport="streamable-http")
