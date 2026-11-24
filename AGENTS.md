@@ -1,0 +1,2 @@
+# Engineering rules
+Read GDD and roadmap before work. Keep main authoritative; test before integration, respect branch protection, never force push. Preserve project isolation, never reboot VPS or alter unrelated services. Never publish secrets or personal data. Record decisions, checkpoints and evidence. Do not claim untested functionality. No paid LLM API. Manual backups; block irreversible migration until backup verified. Stop on insufficient resources or unsafe permissions. Update roadmap after verified milestones.
