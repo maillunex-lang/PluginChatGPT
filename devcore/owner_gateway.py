@@ -8,7 +8,7 @@ from mcp.server.auth.settings import AuthSettings, ClientRegistrationOptions, Re
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 from devcore.owner_oauth import OwnerOAuthProvider, SCOPE
-from devcore.gateway import devcore_status
+from devcore import __version__
 from devcore.owner_tools import register_owner_tools
 
 
@@ -35,6 +35,12 @@ def create_gateway(db: str, issuer: str, resource: str, owner_hash: str, port: i
             revocation_options=RevocationOptions(enabled=True),
         ),
     )
+    def devcore_status() -> dict:
+        """Report live HTTP gateway features and development version."""
+        return {"version":__version__, "status":"development",
+                "remote_enabled":True, "auth":"OAuth 2.1 PKCE",
+                "capabilities":["status","projects","tasks","memory",
+                                "owner_access","skills","doctor"] if datastore_url else ["status"]}
     server.tool()(devcore_status)
     if datastore_url:
         register_owner_tools(server,datastore_url)
