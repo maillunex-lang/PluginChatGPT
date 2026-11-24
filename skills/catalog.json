@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "id": "godot-expert",
+      "keywords": [
+        "godot",
+        "gdscript",
+        ".tscn",
+        "godot 4",
+        "godot 4.7"
+      ],
+      "description": "Godot Engine scene and script workflow",
+      "version": "0.1"
+    },
+    {
+      "id": "cocos-expert",
+      "keywords": [
+        "cocos",
+        "cocos2d",
+        "cocos creator"
+      ],
+      "description": "Cocos engine development",
+      "version": "0.1"
+    },
+    {
+      "id": "mmo-architect",
+      "keywords": [
+        "mmo",
+        "multiplayer",
+        "серверный мир",
+        "онлайн игра"
+      ],
+      "description": "Persistent multiplayer architecture",
+      "version": "0.1"
+    },
+    {
+      "id": "game-designer",
+      "keywords": [
+        "gdd",
+        "геймдизайн",
+        "игровой дизайн",
+        "сюжет"
+      ],
+      "description": "Game design and specifications",
+      "version": "0.1"
+    },
+    {
+      "id": "game-economist",
+      "keywords": [
+        "экономика",
+        "баланс цен",
+        "ресурсы",
+        "production chain"
+      ],
+      "description": "Economy simulation and balance",
+      "version": "0.1"
+    },
+    {
+      "id": "combat-designer",
+      "keywords": [
+        "бой",
+        "battle",
+        "combat",
+        "pvp"
+      ],
+      "description": "Combat and battle systems",
+      "version": "0.1"
+    },
+    {
+      "id": "android-expert",
+      "keywords": [
+        "android",
+        "apk",
+        "gradle",
+        "kotlin"
+      ],
+      "description": "Android app, build and signing",
+      "version": "0.1"
+    },
+    {
+      "id": "database-expert",
+      "keywords": [
+        "postgres",
+        "sql",
+        "база данных",
+        "sqlite"
+      ],
+      "description": "Database schema, migrations and performance",
+      "version": "0.1"
+    },
+    {
+      "id": "code-reviewer",
+      "keywords": [
+        "code review",
+        "аудит кода",
+        "проверка кода",
+        "review"
+      ],
+      "description": "Code review and quality",
+      "version": "0.1"
+    },
+    {
+      "id": "network-engineer",
+      "keywords": [
+        "websocket",
+        "http",
+        "network",
+        "сеть"
+      ],
+      "description": "Network services and protocols",
+      "version": "0.1"
+    },
+    {
+      "id": "performance-engineer",
+      "keywords": [
+        "perf",
+        "скорость",
+        "оптимизация",
+        "производительность"
+      ],
+      "description": "Profiling and optimization",
+      "version": "0.1"
+    },
+    {
+      "id": "blender-expert",
+      "keywords": [
+        "blender",
+        "3d модель",
+        "рендер",
+        "glb"
+      ],
+      "description": "Blender and 3D assets",
+      "version": "0.1"
+    },
+    {
+      "id": "asset-engineer",
+      "keywords": [
+        "asset",
+        "анимация",
+        "текстура",
+        "спрайт"
+      ],
+      "description": "Asset pipeline and conversion",
+      "version": "0.1"
+    },
+    {
+      "id": "ui-ux-designer",
+      "keywords": [
+        "ui",
+        "ux",
+        "интерфейс",
+        "дизайн экрана"
+      ],
+      "description": "User interface and experience",
+      "version": "0.1"
+    },
+    {
+      "id": "devops-expert",
+      "keywords": [
+        "docker",
+        "systemd",
+        "nginx",
+        "vps",
+        "deploy"
+      ],
+      "description": "VPS deployment and automation",
+      "version": "0.1"
+    },
+    {
+      "id": "security-expert",
+      "keywords": [
+        "security",
+        "oauth",
+        "безопасность",
+        "уязвимость"
+      ],
+      "description": "Security auditing and controls",
+      "version": "0.1"
+    },
+    {
+      "id": "github-expert",
+      "keywords": [
+        "github",
+        "git",
+        "pull request",
+        "ветка",
+        "main"
+      ],
+      "description": "GitHub workflows",
+      "version": "0.1"
+    },
+    {
+      "id": "project-director",
+      "keywords": [
+        "roadmap",
+        "дорожная карта",
+        "план задач"
+      ],
+      "description": "Project coordination",
+      "version": "0.1"
+    },
+    {
+      "id": "qa-engineer",
+      "keywords": [
+        "pytest",
+        "тест",
+        "regression",
+        "bug"
+      ],
+      "description": "Test strategy and verification",
+      "version": "0.1"
+    },
+    {
+      "id": "technical-writer",
+      "keywords": [
+        "документация",
+        "readme",
+        "docs",
+        "инструкция"
+      ],
+      "description": "Technical writing",
+      "version": "0.1"
+    }
+  ]
+}
