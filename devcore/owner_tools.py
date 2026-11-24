@@ -5,12 +5,24 @@ from devcore.state_postgres import DevCoreStore
 from devcore.system_ops import execute, read_text, write_text
 from devcore.skills_engine import SkillEngine
 from devcore.doctor import doctor
+from devcore.code_index import CodeIndex
 
 
 def register_owner_tools(server: FastMCP, dsn: str) -> None:
     store=DevCoreStore(dsn)
     store.migrate()
     skill_engine=SkillEngine()
+    code_index=CodeIndex(dsn)
+
+    @server.tool()
+    def devcore_code_index(project_id: str, max_files: int = 10000) -> dict:
+        """Incrementally index source symbols from one registered project."""
+        return code_index.index(project_id,max_files)
+
+    @server.tool()
+    def devcore_code_search(project_id: str, query: str, limit: int = 30) -> list[dict]:
+        """Search cached Python, Godot GDScript and JS/TS symbols."""
+        return code_index.search(project_id,query,limit)
 
     @server.tool()
     def devcore_skills_list() -> list[dict]:
