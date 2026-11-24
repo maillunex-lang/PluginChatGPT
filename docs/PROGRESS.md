@@ -7,7 +7,7 @@
 - DC-05: project registry and initial bounded context loader implemented; advanced token index/AST not done.
 - DC-06: 20 skill catalog entries and deterministic keyword router implemented; full per-skill playbooks not done.
 - DC-07: PostgreSQL queued/running/completed/paused tasks and durable checkpoints; autonomous executor and GitHub auto-push not done.
-- DC-08 to DC-15: remain substantially unimplemented.
+- DC-08: incremental Python/GDScript/JS/TS symbol index with PostgreSQL cache, project-scoped search and tests (partial).\n- DC-09 to DC-15: remain substantially unimplemented.
 - DC-13: read-only Doctor checks for service, disk and database (partial).
 - DC-13C: commercial terms documented; license issuer and subscription services not implemented.
 
